@@ -1,0 +1,11 @@
+{
+  "@teqfw/di": {
+    "autoload": {
+      "ns": "TeqFw_Web_Source_Installer",
+      "path": "./src"
+    }
+  },
+  "@teqfw/web": {
+    "handlers": {}
+  }
+}

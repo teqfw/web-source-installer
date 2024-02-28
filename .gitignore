@@ -1,0 +1,14 @@
+/**/node_modules/
+/**/own_modules/
+/**/package-lock.json
+/**/tmp/
+/**/ttttest.*
+/.idea/
+/atlassian-ide-plugin.xml
+/cfg/local.*
+/composer.lock
+/package-lock.json
+/tmp/
+/var/*.pid
+/var/store/**
+/var/sw_cache.zip
