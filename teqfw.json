@@ -5,7 +5,23 @@
       "path": "./src"
     }
   },
+  "@teqfw/core": {
+    "commands": [
+      "TeqFw_Web_Source_Installer_Back_Cli_Archive"
+    ],
+    "plugin": {
+      "onInit": "TeqFw_Web_Source_Installer_Back_Plugin_Init"
+    }
+  },
   "@teqfw/web": {
-    "handlers": {}
+    "handlers": {
+      "TeqFw_Web_Source_Installer_Back_Web_Handler": {
+        "before": ["TeqFw_Web_Back_App_Server_Handler_Static"],
+        "spaces": ["web-source-installer"]
+      }
+    },
+    "statics": {
+      "/unzipit/": "/unzipit/dist/"
+    }
   }
 }

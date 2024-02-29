@@ -16,6 +16,8 @@
   },
   "repository": "github:teqfw/web-source-installer",
   "dependencies": {
-    "@teqfw/web": "latest"
+    "@teqfw/web": "latest",
+    "archiver": "latest",
+    "unzipit": "latest"
   }
 }
