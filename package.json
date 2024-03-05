@@ -14,7 +14,10 @@
     "email": "alex@flancer64.com",
     "url": "https://github.com/flancer64"
   },
-  "repository": "github:teqfw/web-source-installer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teqfw/web-source-installer.git"
+  },
   "dependencies": {
     "@teqfw/web": "^0.22.0",
     "archiver": "^7.0.0",

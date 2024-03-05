@@ -41,8 +41,10 @@ export default class TeqFw_Web_Source_Installer_Back_Act_Create {
             const length = urls.length;
             for (let i = 0; i < length; i++)
                 for (const one of excludes)
-                    if (util.matchWildcardPattern(urls[i], one))
+                    if (util.matchWildcardPattern(urls[i], one)) {
                         urls[i] = undefined;
+                        break;
+                    }
         }
 
         /**

@@ -12,14 +12,15 @@ export default class TeqFw_Web_Source_Installer_Shared_Util {
      * @return {boolean} - Returns true if the path matches the pattern.
      */
     matchWildcardPattern(path, pattern) {
+        if(!path) return false;
         const pathParts = path.split('/');
         const patternParts = pattern.split('/');
         // always 'false' if path is shorter than pattern
-        if (pathParts.length !== patternParts.length) return false;
+        if (pathParts.length < patternParts.length) return false;
         // Check each part for matching or wildcard
         for (let i = 0; i < patternParts.length; i++)
-            if ((patternParts[i] !== '*') && (pathParts[i] !== patternParts[i]))
-                return false;
-        return true;
+            if ((pathParts[i] !== patternParts[i]))
+                return (patternParts[i] === '*') ;
+        return false;
     }
 }
