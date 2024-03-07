@@ -11,10 +11,16 @@ const NS = 'TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc';
  */
 class Dto {
     static namespace = NS;
-    /** @type {string[]} */
-    excludes;
-    /** @type {string[]} */
-    includes;
+    /**
+     * Prefixes for filesystem paths.
+     * @type {TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc_Rules.Dto}
+     */
+    paths;
+    /**
+     * Prefixes for URLs.
+     * @type {TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc_Rules.Dto}
+     */
+    urls;
 }
 
 /**
@@ -22,11 +28,11 @@ class Dto {
  */
 export default class TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc {
     /**
-     * @param {TeqFw_Core_Shared_Util_Cast} cast
+     * @param {TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc_Rules} dtoRules
      */
     constructor(
         {
-            TeqFw_Core_Shared_Util_Cast$: cast,
+            TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc_Rules$: dtoRules,
         }
     ) {
         // INSTANCE METHODS
@@ -36,8 +42,8 @@ export default class TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc {
          */
         this.createDto = function (data) {
             const res = new Dto();
-            res.excludes = cast.arrayOfStr(data?.excludes);
-            res.includes = cast.arrayOfStr(data?.includes);
+            res.paths = dtoRules.createDto(data?.paths);
+            res.urls = dtoRules.createDto(data?.urls);
             return res;
         };
     }

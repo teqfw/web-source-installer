@@ -109,9 +109,10 @@ export default class TeqFw_Web_Source_Installer_Back_Act_Create {
                 const appName = registry.getAppName();
                 const plugins = registry.items();
                 for (const plugin of plugins) {
+                    // TODO: the URLs excludes only are used for the moment
                     /** @type {TeqFw_Web_Source_Installer_Back_Plugin_Dto_Desc.Dto} */
                     const descOwn = plugin.teqfw[DEF.SHARED.NAME];
-                    const excludes = descOwn?.excludes ?? [];
+                    const urlExcludes = descOwn?.urls?.excludes ?? [];
                     /** @type {TeqFw_Core_Back_Plugin_Dto_Desc_Di.Dto} */
                     const descDi = plugin.teqfw[DEF.MOD_CORE.SHARED.NAME_DI];
                     const autoload = descDi.autoload;
@@ -122,17 +123,17 @@ export default class TeqFw_Web_Source_Installer_Back_Act_Create {
                     // scan './Front/'
                     const pathFront = join(src, DEF.MOD_WEB.SHARED.DIR_SRC_FRONT);
                     const urlFront = `${urlSrc}/${DEF.MOD_WEB.SHARED.DIR_SRC_FRONT}`;
-                    count += readFiles(zip, pathFront, urlFront, excludes);
+                    count += readFiles(zip, pathFront, urlFront, urlExcludes);
                     // scan './Shared/'
                     const pathShared = join(src, DEF.MOD_WEB.SHARED.DIR_SRC_SHARED);
                     const urlShared = `${urlSrc}/${DEF.MOD_WEB.SHARED.DIR_SRC_SHARED}`;
-                    count += readFiles(zip, pathShared, urlShared, excludes);
+                    count += readFiles(zip, pathShared, urlShared, urlExcludes);
                     // read all files from the `./web/` folder of plugins
                     const pathWeb = join(plugin.path, DEF.MOD_WEB.FS_STATIC_ROOT);
                     const urlWeb = (plugin.name === appName)
                         ? '.'   // the application's '.../web/' is mapped as root URL
                         : `./${DEF.MOD_WEB.SHARED.SPACE_WEB}/${plugin.name}`;
-                    count += readFiles(zip, pathWeb, urlWeb, excludes);
+                    count += readFiles(zip, pathWeb, urlWeb, urlExcludes);
                     if (count > 0) {
                         logger.info(`${count} files are archived for plugin '${plugin.name}'.`);
                         total += count;
