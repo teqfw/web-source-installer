@@ -1,6 +1,6 @@
 {
   "name": "@teqfw/web-source-installer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Streamline source installation for PWAs within TeqFW projects.",
   "homepage": "https://github.com/teqfw/web-source-installer/",
