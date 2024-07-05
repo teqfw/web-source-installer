@@ -3,7 +3,7 @@
  */
 // MODULE'S IMPORT
 import {join} from 'node:path';
-import {createWriteStream, existsSync, unlinkSync} from 'node:fs';
+import {createWriteStream, existsSync, mkdirSync, unlinkSync} from 'node:fs';
 import archiver from 'archiver';
 
 /**
@@ -56,6 +56,12 @@ export default class TeqFw_Web_Source_Installer_Back_Act_Create {
             archive.on('error', (err) => {
                 throw err;
             });
+            // create folder if not exists
+            const dirUp = join(ZIP, '..');
+            if (!(existsSync(dirUp))) {
+                mkdirSync(dirUp, {recursive: true});
+                logger.info(`The folder '${dirUp}' is not exist. Create new one.`);
+            }
             // Pipe archive data to the file
             logger.info(`Create the new archive: ${ZIP}`);
             const output = createWriteStream(ZIP);
