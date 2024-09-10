@@ -25,7 +25,7 @@ export default class TeqFw_Web_Source_Installer_Back_Act_Create {
             TeqFw_Web_Source_Installer_Shared_Util$: util,
             TeqFw_Core_Back_Config$: config,
             TeqFw_Core_Back_Api_Plugin_Registry$: registry,
-            ['TeqFw_Core_Back_Util#scanRecursively']: scanRecursively,
+            'TeqFw_Core_Back_Util.scanRecursively': scanRecursively,
         }
     ) {
         // VARS

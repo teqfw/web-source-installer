@@ -29,8 +29,8 @@ export default function Factory(
         TeqFw_Core_Back_App$: app,
         TeqFw_Core_Shared_Util_Cast$: cast,
         TeqFw_Web_Source_Installer_Back_Act_Create$: actCreate,
-        ['TeqFw_Core_Back_Api_Dto_Command.Factory$']: fCommand,
-        ['TeqFw_Core_Back_Api_Dto_Command_Option.Factory$']: fOpt,
+        'TeqFw_Core_Back_Api_Dto_Command.Factory$': fCommand,
+        'TeqFw_Core_Back_Api_Dto_Command_Option.Factory$': fOpt,
     }
 ) {
     // FUNCS
